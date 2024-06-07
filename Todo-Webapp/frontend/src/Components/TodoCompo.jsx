@@ -24,7 +24,7 @@ export default function TodoCompo() {
 
     function retrieveTodo(){
 
-      if(id!=-1){
+      if(id!==-1){
         retrieveTodoApi(username,id)
             .then(response=>{
               setDescription(response.data.description)
@@ -43,7 +43,7 @@ export default function TodoCompo() {
           targetDate: values.targetDate,
           done: false
       }
-      if(id==-1){
+      if(id===-1){
         createTodoApi(username,todo)
             .then(response=>{
               navigate("/todos")
@@ -66,17 +66,17 @@ export default function TodoCompo() {
       }
       if(values.description.length<5)
             errors.description="Enter a valid Description"
-      if(values.targetDate == null || new Date(values.targetDate) < new Date() || values.targetDate=='')
+      if(values.targetDate == null || new Date(values.targetDate) <= new Date()|| values.targetDate==='')
             errors.description="Enter a valid date"
-      console.log(values)
+      // console.log(values)
       return errors
     }
 
 
   return (
-    <div className="container text-center">
+    <div className="container text-center" >
         <h1>Enter Todo Details</h1>
-        <div>
+        <div style={{minHeight:"600px"}}>
           <Formik initialValues={{description,targetDate}}
                     enableReinitialize={true}
                     onSubmit={onSubmit}

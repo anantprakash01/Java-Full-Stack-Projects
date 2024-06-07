@@ -77,12 +77,13 @@ export default function ListToDoCompo(props) {
         />
     <div className="ListCompo container">
         
-      <h1 className='my-3'>Things You Want To Do!</h1>
+      <h1 className='my-3 mb-5'>Dream, Plan, Do! Your ultimate destination for organizing aspirations.</h1>
       {/* {alert && <div className='alert alert-warning'>{alert}</div>} */}
       
       
 
-      <table className="table">
+      
+      {todos.length===0?<div className='text-center mb-5'><h5>Click on Add Button to Add Your First Todo</h5></div>:<table className="table">
         <thead>
             <tr>
                 <th>Description</th>
@@ -111,7 +112,7 @@ export default function ListToDoCompo(props) {
                 )
             }
         </tbody>
-      </table>
+      </table>}
       <div className="container text-center">
       <button className="btn btn-success" onClick={handleAddTodo}>Add Todo</button>
       </div>

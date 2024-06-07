@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { useAuth } from './security/AuthContext';
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 export default function LoginComponent() {
     const[username,setUsername]=useState("")
@@ -44,6 +44,11 @@ export default function LoginComponent() {
                 </div>
                 <div>
                     <button className='btn btn-primary my-3 mx-3' type="button" name='login' onClick={handleSubmit}>Login</button>
+                </div>
+
+                <div className='mt-5'>
+                    <h5>Don't have an Taskify Account?</h5>
+                    <Link to ='/create_acc'><button  className='btn btn-success my-3 mx-3'>Create Account</button></Link>
                 </div>
             </div>
         </div>

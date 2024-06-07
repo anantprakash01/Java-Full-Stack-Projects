@@ -17,6 +17,7 @@ import {
 
 } from "react-router-dom";
 import TodoCompo from './Components/TodoCompo';
+import CreateAcc from './Components/CreateAcc';
 
 
 function AuthenticatedRoute({children}){
@@ -34,6 +35,7 @@ function App(props) {
             <Routes>
             <Route path="" element={<LoginComponent/>}></Route>
             <Route path="/login" element={<LoginComponent/>}></Route>
+            <Route path="/create_acc" element={<CreateAcc/>}></Route>
             <Route path="/welcome/:username" element={
                 <AuthenticatedRoute>
                   <WelcomeComponent/>

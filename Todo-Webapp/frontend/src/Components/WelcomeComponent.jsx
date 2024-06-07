@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import {retrieveHelloWorldBeanPath} from './api/HelloWorldApiService'
+import { Typewriter } from 'react-simple-typewriter'
 import {
     useParams,
     Link
@@ -22,7 +23,7 @@ export default function WelcomeComponent() {
         //     .catch((error)=>errorResponse(error))
         //     .finally(()=>console.log("cleanup"))
 
-        retrieveHelloWorldBeanPath("Anant")
+        retrieveHelloWorldBeanPath("Test")
             .then((response)=>successfulResponse(response))
             .catch((error)=>errorResponse(error))
             // .finally(()=>console.log("cleanup"))
@@ -38,10 +39,18 @@ export default function WelcomeComponent() {
 
     return(
         <div className="WelcomeComponent container">
-            <h1 className="container text-center my-5">Welocme {username}</h1>
+            <h1 className="container text-center my-5">Welcome {username}</h1>
+
+            <div className="container text-center my-5" style={{height:"50px", fontSize:'30px'}}><Typewriter
+            loop={true}
+            
+            words={['Taskify - Your Personal Todo Manager', 'Never forget a task again. Let us help you manage your todos.', 'Designed and developed by Anant ']}
+            cursor
+            cursorStyle='_'
+            /></div>
             <div className="container text-center my-3"><h5>Manage Your Todos - <Link to="/todos">Click Here</Link></h5>
-            <br/>
-            <button type="button" className="btn btn-success my-3" onClick={handleClick}>Hello</button>
+            
+           
             </div>
            <div className="text-info">
             {message}

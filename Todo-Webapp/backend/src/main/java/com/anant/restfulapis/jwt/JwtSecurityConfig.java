@@ -84,7 +84,12 @@ public class JwtSecurityConfig {
                                 .roles("USER")
                                 .build();
 
-        return new InMemoryUserDetailsManager(user);
+        UserDetails user1 = User.withUsername("Pritam")
+                .password("{noop}dummy")
+                .authorities("read")
+                .roles("USER")
+                .build();
+        return new InMemoryUserDetailsManager(user,user1);
     }
 
     @Bean
