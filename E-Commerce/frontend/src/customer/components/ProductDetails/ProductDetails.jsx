@@ -9,6 +9,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { findProductById } from "../../../State/Product/Action";
 import { store } from "../../../State/store";
+import { addItemToCart } from "../../../State/Cart/Action";
 const product = {
   name: "Basic Tee 6-Pack",
   price: "$192",
@@ -70,10 +71,13 @@ export default function ProductDetails() {
   const navigate = useNavigate();
   const params = useParams();
   const dispatch = useDispatch();
-  const {products} = useSelector(store=>store)
+  const {products} = useSelector(store=>store);
 
 
   const handleAddToCart =()=>{
+    const data = {productId:params.productId,size:selectedSize.name}
+    console.log(data)
+    dispatch(addItemToCart(data))
     navigate('/cart')
   }
 

@@ -29,7 +29,7 @@ export default function Product() {
   const navigate = useNavigate()
   const location = useLocation()
   const param = useParams()
-  const {product}=useSelector(store=>store)
+  const {products}=useSelector(store=>store)
 
   const decodedQueryString = decodeURIComponent(location.search);
   const searchParams = new URLSearchParams(decodedQueryString);
@@ -406,7 +406,7 @@ export default function Product() {
               <div className="lg:col-span-4 w-full">
 
                 <div className='flex flex-wrap justify-center bg-white py-5'>
-                {product.products && product.products?.content?.map((item)=><ProductCard product={item}/>)}
+                {products.products && products.products?.content?.map((item)=><ProductCard product={item}/>)}
                 </div>
                </div>
             </div>
