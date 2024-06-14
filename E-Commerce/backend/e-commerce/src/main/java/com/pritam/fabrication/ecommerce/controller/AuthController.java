@@ -54,6 +54,7 @@ public class AuthController {
 		String password = user.getPassword();
 		String firstName = user.getFirstName();
 		String lastName = user.getLastName();
+		Long number = user.getMobile();
 
 		User isEmailExist = userRepository.findByEmail(email);
 
@@ -66,6 +67,7 @@ public class AuthController {
 		createdUser.setPassword(passwordEncoder.encode(password));
 		createdUser.setFirstName(firstName);
 		createdUser.setLastName(lastName);
+		createdUser.setMobile(number);
 
 		User savedUser = userRepository.save(createdUser);
 		Cart cart = cartService.createCart(savedUser);

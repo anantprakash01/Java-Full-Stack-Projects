@@ -28,7 +28,7 @@ public class User {
 	private String password;
 	private String email;
 	private String role;
-	private String mobile;
+	private Long mobile;
 	
 	
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -54,7 +54,7 @@ public class User {
 		
 	}
 
-	public User(Long id, String firstName, String lastName, String password, String email, String role, String mobile,
+	public User(Long id, String firstName, String lastName, String password, String email, String role, Long mobile,
 			List<Address> address, List<PaymentInformation> paymentInformation, List<Rating> ratings,
 			List<Review> reviews, LocalDate createdAt) {
 		super();
@@ -120,11 +120,11 @@ public class User {
 		this.role = role;
 	}
 
-	public String getMobile() {
+	public Long getMobile() {
 		return mobile;
 	}
 
-	public void setMobile(String mobile) {
+	public void setMobile(Long mobile) {
 		this.mobile = mobile;
 	}
 

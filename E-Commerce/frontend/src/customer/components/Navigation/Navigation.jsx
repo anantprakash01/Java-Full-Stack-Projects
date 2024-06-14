@@ -55,6 +55,7 @@ export default function Navigation() {
   useEffect(()=>{
     if(jwt){
         dispatch(getUser(jwt))
+        // console.log("auth1",auth.user)
     }
 },[jwt,auth.jwt])
 
@@ -442,6 +443,9 @@ export default function Navigation() {
                       >
               
                         
+                        <MenuItem onClick={()=>navigate('/account/profile')}>
+                          Profile
+                        </MenuItem>
                         <MenuItem onClick={()=>navigate("/account/order")}>
                           My Orders
                         </MenuItem>
